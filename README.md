@@ -1,4 +1,4 @@
-# Bhishi Digitizer v4.0.3 — GitHub/Render Ready Java Edition
+# Bhishi Digitizer v4.1.0 — GitHub/Render Ready Java Edition
 
 Bhishi Digitizer is a native **Android Java + XML** application for digitising neighbourhood Bhishi / chit-fund savings circles. The current v4 release uses the supplied Bhishi Digitizer logo as its visual identity and expands the app around a professional dashboard, auditable lucky draw / sealed auction, QR joining, English–Marathi–Hindi UI support, and branded digital payment receipts.
 
@@ -205,7 +205,7 @@ The project resources and source references are statically validated in this pac
 See `OFFLINE_CONNECTIVITY.md`.
 
 
-## v4.0.3 GitHub / Render readiness update
+## v4.1.0 GitHub / Render readiness update
 
 - Removed generated Android build output, IDE-local state, Node `node_modules`, local SDK paths and the local backend `.env` from the repository package.
 - Fixed `.gitignore`; the previous blanket `*.json` rule would have hidden `package.json`, `firebase_database_rules.json` and `google-services.json` in a new repository.
@@ -214,6 +214,19 @@ See `OFFLINE_CONNECTIVITY.md`.
 - Backend now supports Render-safe Firebase Admin credentials through `FIREBASE_SERVICE_ACCOUNT_JSON` or separate Firebase service-account environment variables, while keeping Application Default Credentials as a fallback.
 - Backend binds on `0.0.0.0` and uses Render's `PORT` automatically.
 - Added `render.yaml` and `GITHUB_RENDER_DEPLOYMENT.md`.
-- Updated Android version to **4.0.3** (`versionCode 6`).
+- Updated Android version to **4.1.0** (`versionCode 6`).
 
 **Never commit a Firebase Admin service-account key, `.env`, Razorpay secret, Android signing keystore or other private credential.**
+
+
+## v4.1.0 final polish
+
+- App + in-app notifications for lucky draw and sealed auction start/end events.
+- Firebase Cloud Messaging group-topic subscriptions for joined Bhishi groups.
+- Server-side notification fan-out with duplicate-event protection.
+- Behaviour-based explainable trust score using verified/on-time contribution history and open disputes.
+- Safer group closure preflight: planned payout cycles must be locked and disputes resolved.
+- Polished notification empty states and read state.
+- Tightened notification database rules so users cannot write to another user's inbox.
+
+See `FINAL_POLISHING_AND_PRIVATE_SETUP.md` before final deployment.

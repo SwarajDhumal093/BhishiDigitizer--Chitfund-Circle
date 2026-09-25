@@ -1,6 +1,7 @@
 package com.bhishi.digitizer;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -29,6 +30,7 @@ public class NotificationsActivity extends BaseActivity {
         findViewById(R.id.btnBack).setOnClickListener(v -> finish());
 
         RecyclerView rv = findViewById(R.id.rvNotifications);
+        View empty = findViewById(R.id.emptyNotifications);
         rv.setLayoutManager(new LinearLayoutManager(this));
         NotificationAdapter adapter = new NotificationAdapter();
         rv.setAdapter(adapter);
@@ -44,10 +46,20 @@ public class NotificationsActivity extends BaseActivity {
                 }
                 Collections.sort(items, (a, b) -> Long.compare(b.timestamp, a.timestamp));
                 adapter.setItems(items);
+                boolean isEmpty = items.isEmpty();
+                empty.setVisibility(isEmpty ? View.VISIBLE : View.GONE);
+                rv.setVisibility(isEmpty ? View.GONE : View.VISIBLE);
+                for (DataSnapshot n : snapshot.getChildren()) {
+                    if (!Boolean.TRUE.equals(n.child("seen").getValue(Boolean.class))) {
+                        n.getRef().child("seen").setValue(true);
+                    }
+                }
             }
 
             @Override
             public void onCancelled(@NonNull com.google.firebase.database.DatabaseError error) {
+                empty.setVisibility(View.VISIBLE);
+                rv.setVisibility(View.GONE);
             }
         });
     }

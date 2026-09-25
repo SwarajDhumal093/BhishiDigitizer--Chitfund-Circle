@@ -22,7 +22,7 @@
     <string name="biometric_no_session">Log in with your password first to enable fingerprint login next time.</string>
 
     <!-- Configure this to your HTTPS Node/Express payment backend. Never put the Razorpay key secret in Android. -->
-    <string name="payment_backend_base_url">https://YOUR_BACKEND_DOMAIN.example</string>
+    <string name="payment_backend_base_url">https://bhishidigitizer-chitfund-circle.onrender.com</string>
     <string name="payment_gateway_name">Razorpay Secure Checkout</string>
 
 
@@ -215,4 +215,18 @@
     <string name="no_internet_message">No internet connection • Live data and online actions are temporarily unavailable.</string>
     <string name="network_settings">Settings</string>
     <string name="back_online_message">Back online • Bhishi Digitizer is connected again.</string>
+    <string name="notification_subtitle">Draw, auction and contribution updates</string>
+    <string name="no_notifications_yet">No notifications yet</string>
+    <string name="no_notifications_body">Lucky draw and sealed auction start/end updates will appear here automatically.</string>
+    <string name="trust_reason_verified">%1$d of %2$d recorded contribution(s) are fully verified and locked.</string>
+    <string name="trust_reason_ontime">%1$d of %2$d recorded contribution(s) are marked on time across %3$d group(s).</string>
+    <string name="trust_reason_disputes">Open disputes affecting your score: %1$d.</string>
+    <string name="trust_score_load_failed">Could not load the live trust score. Please try again when connected.</string>
+    <string name="admin_only_closure">Only the group admin can close this Bhishi.</string>
+    <string name="group_completion_archived_detail">This group is locked as completed with %1$d linked member(s).</string>
+    <string name="group_ready_to_archive">All closure checks passed. This Bhishi can be archived.</string>
+    <string name="group_not_ready_to_archive">This Bhishi is not ready to close yet.</string>
+    <string name="group_completion_preflight">Locked payout cycles: %1$d / %2$d • Open disputes: %3$d • Members: %4$d. All planned payout cycles must be locked and disputes resolved before closure.</string>
+    <string name="resolve_before_archive">Complete pending items first</string>
+    <string name="archive_group_confirmation">Archive this Bhishi permanently? Use this only after every planned payout cycle is locked and all disputes are resolved.</string>
 </resources>

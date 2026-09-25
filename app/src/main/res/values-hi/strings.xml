@@ -187,4 +187,18 @@
     <string name="no_internet_message">इंटरनेट कनेक्शन नहीं है • लाइव डेटा और ऑनलाइन सुविधाएँ अभी उपलब्ध नहीं हैं।</string>
     <string name="network_settings">सेटिंग्स</string>
     <string name="back_online_message">इंटरनेट वापस आ गया • Bhishi Digitizer फिर से कनेक्ट है।</string>
+    <string name="notification_subtitle">ड्रॉ, ऑक्शन और योगदान अपडेट</string>
+    <string name="no_notifications_yet">अभी कोई सूचना नहीं</string>
+    <string name="no_notifications_body">लकी ड्रॉ और सील्ड ऑक्शन शुरू/समाप्त होने की सूचनाएँ यहाँ अपने आप दिखेंगी।</string>
+    <string name="trust_reason_verified">%1$d में से %2$d दर्ज योगदान पूरी तरह सत्यापित और लॉक हैं।</string>
+    <string name="trust_reason_ontime">%3$d समूहों में %1$d में से %2$d दर्ज योगदान समय पर चिह्नित हैं।</string>
+    <string name="trust_reason_disputes">आपके स्कोर को प्रभावित करने वाले खुले विवाद: %1$d।</string>
+    <string name="trust_score_load_failed">लाइव ट्रस्ट स्कोर लोड नहीं हो सका। कनेक्शन मिलने पर फिर प्रयास करें।</string>
+    <string name="admin_only_closure">केवल समूह एडमिन इस भिशी को बंद कर सकता है।</string>
+    <string name="group_completion_archived_detail">यह समूह %1$d जुड़े सदस्यों के साथ पूर्ण रूप से लॉक है।</string>
+    <string name="group_ready_to_archive">सभी क्लोज़र जाँच पूरी हैं। इस भिशी को संग्रहित किया जा सकता है।</string>
+    <string name="group_not_ready_to_archive">यह भिशी अभी बंद करने के लिए तैयार नहीं है।</string>
+    <string name="group_completion_preflight">लॉक पेआउट चक्र: %1$d / %2$d • खुले विवाद: %3$d • सदस्य: %4$d। बंद करने से पहले सभी पेआउट चक्र लॉक और विवाद हल होने चाहिए।</string>
+    <string name="resolve_before_archive">पहले लंबित कार्य पूरे करें</string>
+    <string name="archive_group_confirmation">क्या इस भिशी को स्थायी रूप से संग्रहित करना है? केवल सभी पेआउट चक्र लॉक और विवाद हल होने के बाद करें।</string>
 </resources>

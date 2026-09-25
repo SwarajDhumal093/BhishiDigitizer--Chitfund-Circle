@@ -6,6 +6,7 @@ public class NotificationItem {
     public String notifId;
     public String text;
     public String groupId;
+    public String eventType;
     public boolean seen;
     public long timestamp;
 

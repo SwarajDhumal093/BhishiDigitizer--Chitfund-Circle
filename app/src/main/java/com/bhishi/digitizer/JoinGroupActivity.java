@@ -13,6 +13,7 @@ import androidx.appcompat.app.AlertDialog;
 import com.bhishi.digitizer.models.Group;
 import com.bhishi.digitizer.models.GroupMember;
 import com.bhishi.digitizer.utils.FirebasePaths;
+import com.bhishi.digitizer.utils.GroupNotificationManager;
 import com.bhishi.digitizer.utils.PrefsManager;
 import com.bhishi.digitizer.utils.QrUtils;
 import com.google.mlkit.vision.codescanner.GmsBarcodeScanner;
@@ -136,6 +137,7 @@ public class JoinGroupActivity extends BaseActivity {
             @Override public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
                     FirebasePaths.user(uid).child("groupsJoined").child(groupId).setValue(true);
+                    GroupNotificationManager.subscribeToGroup(JoinGroupActivity.this, groupId);
                     Toast.makeText(JoinGroupActivity.this, "You are already a member of this group", Toast.LENGTH_SHORT).show();
                     openDashboard();
                     return;
@@ -154,6 +156,7 @@ public class JoinGroupActivity extends BaseActivity {
         FirebasePaths.groupMembers(groupId).child(uid).setValue(member)
                 .addOnSuccessListener(unused -> FirebasePaths.user(uid).child("groupsJoined").child(groupId).setValue(true)
                         .addOnCompleteListener(task -> {
+                            GroupNotificationManager.subscribeToGroup(this, groupId);
                             Toast.makeText(this, "Joined group successfully", Toast.LENGTH_SHORT).show();
                             openDashboard();
                         }))

@@ -3,15 +3,22 @@ package com.bhishi.digitizer;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Build;
 import android.provider.Settings;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import android.content.pm.PackageManager;
+import android.Manifest;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bhishi.digitizer.utils.LocaleManager;
 import com.bhishi.digitizer.utils.NetworkMonitor;
+import com.bhishi.digitizer.utils.NotificationCenter;
+import com.bhishi.digitizer.utils.GroupNotificationManager;
 import com.bhishi.digitizer.utils.ThemeManager;
 import com.bhishi.digitizer.utils.UiMotion;
 import com.google.android.material.snackbar.Snackbar;
@@ -33,8 +40,20 @@ public abstract class BaseActivity extends AppCompatActivity {
         ThemeManager.applySavedTheme(this);
         super.onCreate(savedInstanceState);
         overridePendingTransition(R.anim.activity_enter, R.anim.activity_exit);
+        NotificationCenter.ensureChannel(this);
+        requestNotificationPermissionIfNeeded();
+        GroupNotificationManager.syncSubscriptions(this);
         networkMonitor = new NetworkMonitor(this,
                 online -> runOnUiThread(() -> handleConnectivityChange(online)));
+    }
+
+    private void requestNotificationPermissionIfNeeded() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) return;
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED) return;
+        android.content.SharedPreferences prefs = getSharedPreferences("bhishi_permissions", MODE_PRIVATE);
+        if (prefs.getBoolean("notification_permission_asked", false)) return;
+        prefs.edit().putBoolean("notification_permission_asked", true).apply();
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.POST_NOTIFICATIONS}, 2401);
     }
 
     @Override

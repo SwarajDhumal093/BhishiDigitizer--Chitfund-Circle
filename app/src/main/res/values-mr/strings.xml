@@ -187,4 +187,18 @@
     <string name="no_internet_message">इंटरनेट कनेक्शन नाही • लाईव्ह डेटा आणि ऑनलाइन सुविधा सध्या उपलब्ध नाहीत.</string>
     <string name="network_settings">सेटिंग्ज</string>
     <string name="back_online_message">इंटरनेट पुन्हा सुरू झाले • Bhishi Digitizer पुन्हा कनेक्ट आहे.</string>
+    <string name="notification_subtitle">ड्रॉ, लिलाव आणि योगदान अपडेट्स</string>
+    <string name="no_notifications_yet">अजून सूचना नाहीत</string>
+    <string name="no_notifications_body">लकी ड्रॉ आणि सील्ड लिलाव सुरू/समाप्त होण्याच्या सूचना येथे आपोआप दिसतील.</string>
+    <string name="trust_reason_verified">%1$d पैकी %2$d नोंदवलेली योगदान पूर्णपणे पडताळून लॉक आहेत.</string>
+    <string name="trust_reason_ontime">%3$d गटांमध्ये %1$d पैकी %2$d नोंदवलेली योगदान वेळेत म्हणून चिन्हांकित आहेत.</string>
+    <string name="trust_reason_disputes">तुमच्या स्कोअरवर परिणाम करणारे खुले वाद: %1$d.</string>
+    <string name="trust_score_load_failed">लाईव्ह ट्रस्ट स्कोअर लोड झाला नाही. कनेक्शन मिळाल्यावर पुन्हा प्रयत्न करा.</string>
+    <string name="admin_only_closure">फक्त गट अॅडमिन ही भिशी बंद करू शकतो.</string>
+    <string name="group_completion_archived_detail">हा गट %1$d जोडलेल्या सदस्यांसह पूर्ण म्हणून लॉक आहे.</string>
+    <string name="group_ready_to_archive">सर्व क्लोजर तपासण्या पूर्ण आहेत. ही भिशी संग्रहित करता येईल.</string>
+    <string name="group_not_ready_to_archive">ही भिशी अजून बंद करण्यासाठी तयार नाही.</string>
+    <string name="group_completion_preflight">लॉक पेआउट फेऱ्या: %1$d / %2$d • खुले वाद: %3$d • सदस्य: %4$d. बंद करण्यापूर्वी सर्व नियोजित पेआउट फेऱ्या लॉक आणि वाद सोडवलेले असावेत.</string>
+    <string name="resolve_before_archive">प्रलंबित गोष्टी आधी पूर्ण करा</string>
+    <string name="archive_group_confirmation">ही भिशी कायमची संग्रहित करायची? सर्व पेआउट फेऱ्या लॉक आणि वाद सोडवल्यानंतरच करा.</string>
 </resources>

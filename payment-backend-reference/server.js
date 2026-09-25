@@ -76,6 +76,77 @@ function currentMonthKeyIndia() {
   return `${year}-${month}`;
 }
 
+
+function topicForGroup(groupId) {
+  const safe = String(groupId || 'unknown').replace(/[^A-Za-z0-9\-_.~%]/g, '_');
+  return `bhishi_group_${safe}`.slice(0, 900);
+}
+
+async function publishRoundEvent(groupId, eventType, extra = {}) {
+  const monthKey = currentMonthKeyIndia();
+  const eventRef = db.ref(`notificationEvents/${groupId}/${monthKey}/${eventType}`);
+  const eventTxn = await eventRef.transaction(current => current || {
+    eventType,
+    createdAt: admin.database.ServerValue.TIMESTAMP
+  });
+  if (!eventTxn.committed) return { sent: false, duplicate: true };
+
+  const groupSnap = await db.ref(`groups/${groupId}`).get();
+  if (!groupSnap.exists()) return { sent: false, missingGroup: true };
+  const group = groupSnap.val() || {};
+  const groupName = group.groupName || 'Your Bhishi group';
+  const isAuction = String(group.mode || 'draw').toLowerCase() === 'auction';
+
+  let title = 'Bhishi Digitizer';
+  let body = '';
+  if (eventType === 'auction_started') {
+    title = 'Sealed auction started';
+    body = `${groupName}: the sealed auction is now open. Submit your private bid before it closes.`;
+  } else if (eventType === 'auction_ended') {
+    title = 'Sealed auction completed';
+    body = `${groupName}: the auction has ended. ${extra.winnerName ? `${extra.winnerName} won the round.` : 'The result is now locked.'}`;
+  } else if (eventType === 'draw_started') {
+    title = 'Lucky draw started';
+    body = `${groupName}: the lucky draw is being finalized securely.`;
+  } else if (eventType === 'draw_ended') {
+    title = 'Lucky draw completed';
+    body = `${groupName}: the draw has ended. ${extra.winnerName ? `${extra.winnerName} won the round.` : 'The result is now locked.'}`;
+  } else {
+    return { sent: false, unsupported: true };
+  }
+
+  const recipients = new Set(Object.keys(group.members || {}));
+  if (group.adminId) recipients.add(group.adminId);
+  const updates = {};
+  for (const uid of recipients) {
+    const ref = db.ref(`notifications/${uid}`).push();
+    updates[`notifications/${uid}/${ref.key}`] = {
+      text: body,
+      groupId,
+      seen: false,
+      timestamp: admin.database.ServerValue.TIMESTAMP,
+      eventType
+    };
+  }
+  if (Object.keys(updates).length) await db.ref().update(updates);
+
+  try {
+    await admin.messaging().send({
+      topic: topicForGroup(groupId),
+      notification: { title, body },
+      data: { groupId, eventType, title, body },
+      android: {
+        priority: 'high',
+        notification: { channelId: 'bhishi_rounds' }
+      }
+    });
+  } catch (e) {
+    // Keep the financial operation successful even if push delivery is temporarily unavailable.
+    console.warn('FCM round notification failed:', e.message);
+  }
+  return { sent: true, recipients: recipients.size, mode: isAuction ? 'auction' : 'draw' };
+}
+
 // Webhook must receive raw bytes so the signature can be verified.
 app.post('/payments/webhook', express.raw({ type: 'application/json' }), async (req, res) => {
   try {
@@ -103,7 +174,7 @@ app.post('/payments/webhook', express.raw({ type: 'application/json' }), async (
 });
 
 app.get('/health', (req, res) => {
-  res.json({ ok: true, payouts: true, payments: razorpayEnabled });
+  res.json({ ok: true, payouts: true, notifications: true, payments: razorpayEnabled });
 });
 
 app.use(express.json({ limit: '64kb' }));
@@ -245,6 +316,40 @@ async function recordVerifiedPayment(order, paymentId, orderId, gatewayStatus) {
 
 
 
+
+app.post('/rounds/event', auth, async (req, res) => {
+  try {
+    const { groupId, eventType } = req.body || {};
+    if (!groupId || !eventType) return res.status(400).json({ error: 'groupId and eventType are required' });
+    if (!['auction_started', 'draw_started'].includes(eventType)) {
+      return res.status(400).json({ error: 'unsupported round event' });
+    }
+    const monthKey = currentMonthKeyIndia();
+    const groupSnap = await db.ref(`groups/${groupId}`).get();
+    if (!groupSnap.exists()) return res.status(404).json({ error: 'group not found' });
+    const group = groupSnap.val() || {};
+    if (group.adminId !== req.user.uid) return res.status(403).json({ error: 'admin access required' });
+
+    const mode = String(group.mode || 'draw').toLowerCase();
+    if (eventType === 'auction_started') {
+      if (mode !== 'auction') return res.status(409).json({ error: 'group is not configured for auction' });
+      const configSnap = await db.ref(`roundConfigs/${groupId}/${monthKey}`).get();
+      const config = configSnap.val() || {};
+      if (!configSnap.exists() || config.status !== 'open' || Number(config.closeAt) <= Date.now()) {
+        return res.status(409).json({ error: 'auction is not currently open' });
+      }
+    } else if (mode === 'auction') {
+      return res.status(409).json({ error: 'group is configured for sealed auction' });
+    }
+
+    const result = await publishRoundEvent(groupId, eventType);
+    return res.json({ ok: true, notification: result });
+  } catch (e) {
+    console.error(e);
+    return res.status(500).json({ error: 'could not publish round event' });
+  }
+});
+
 // Server-authoritative Bhishi payout finalisation. The phone can request a close,
 // but it cannot choose or overwrite the winner.
 app.post('/payouts/finalize', auth, async (req, res) => {
@@ -309,6 +414,9 @@ app.post('/payouts/finalize', auth, async (req, res) => {
     eligible.sort((a, b) => String(a.uid).localeCompare(String(b.uid)));
     let payout;
     const mode = String(group.mode || 'draw').toLowerCase();
+    if (mode !== 'auction') {
+      await publishRoundEvent(groupId, 'draw_started');
+    }
 
     if (mode === 'auction') {
       // Close the visible bidding window on the trusted server before reading bids.
@@ -403,6 +511,10 @@ app.post('/payouts/finalize', auth, async (req, res) => {
         finalizedAt: admin.database.ServerValue.TIMESTAMP
       });
     }
+    await publishRoundEvent(groupId, mode === 'auction' ? 'auction_ended' : 'draw_ended', {
+      winnerName: payout.winnerName,
+      winnerUid: payout.winnerUid
+    });
     return res.json({ finalized: true, payout });
   } catch (e) {
     console.error(e);

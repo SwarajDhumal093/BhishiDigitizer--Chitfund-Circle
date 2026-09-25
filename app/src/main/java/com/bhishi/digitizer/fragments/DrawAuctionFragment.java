@@ -398,6 +398,7 @@ public class DrawAuctionFragment extends Fragment {
                     btnOpenAuction.setText("Auction open");
                     startAuctionTicker();
                     updateActionAvailability();
+                    notifyRoundEventAsync("auction_started");
                     Toast.makeText(requireContext(), "30-minute sealed auction opened", Toast.LENGTH_SHORT).show();
                 })
                 .addOnFailureListener(e -> {
@@ -437,6 +438,7 @@ public class DrawAuctionFragment extends Fragment {
             return;
         }
         btnRunDraw.setEnabled(false);
+        notifyRoundEventAsync("draw_started");
         final int[] frame = {0};
         Runnable shufflePreview = new Runnable() {
             @Override public void run() {
@@ -540,6 +542,23 @@ public class DrawAuctionFragment extends Fragment {
                     Toast.makeText(requireContext(), safeMessage(e), Toast.LENGTH_LONG).show();
                     refreshRound();
                 });
+            }
+        }));
+    }
+
+    private void notifyRoundEventAsync(String eventType) {
+        String baseUrl = getString(R.string.payment_backend_base_url).trim();
+        if (!baseUrl.startsWith("https://") || baseUrl.contains("YOUR_BACKEND_DOMAIN")) return;
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user == null) return;
+        user.getIdToken(false).addOnSuccessListener(result -> executor.execute(() -> {
+            try {
+                JSONObject body = new JSONObject();
+                body.put("groupId", groupId);
+                body.put("eventType", eventType);
+                postJson(baseUrl + "/rounds/event", body, result.getToken());
+            } catch (Exception ignored) {
+                // Notification delivery must never block or fail the financial round itself.
             }
         }));
     }

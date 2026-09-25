@@ -15,6 +15,7 @@ import androidx.appcompat.app.AlertDialog;
 import com.bhishi.digitizer.models.Group;
 import com.bhishi.digitizer.models.GroupMember;
 import com.bhishi.digitizer.utils.FirebasePaths;
+import com.bhishi.digitizer.utils.GroupNotificationManager;
 import com.bhishi.digitizer.utils.PrefsManager;
 import com.google.android.material.card.MaterialCardView;
 import com.google.firebase.database.DataSnapshot;
@@ -184,6 +185,7 @@ public class CreateGroupActivity extends BaseActivity {
                             adminName == null ? "Admin" : adminName, "", startDate);
                     FirebasePaths.groupMembers(groupId).child(adminId).setValue(adminAsMember);
                     FirebasePaths.user(adminId).child("groupsJoined").child(groupId).setValue(true);
+                    GroupNotificationManager.subscribeToGroup(this, groupId);
                     showGroupCodeDialog(groupId, groupCode);
                 })
                 .addOnFailureListener(e -> {
