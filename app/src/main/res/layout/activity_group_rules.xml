@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_app_gradient"
+    android:fillViewport="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="48dp" android:gravity="center_vertical" android:orientation="horizontal">
+            <ImageButton android:id="@+id/btnBack" android:layout_width="42dp" android:layout_height="42dp" android:background="@drawable/bg_icon_circle" android:padding="10dp" android:src="@drawable/ic_arrow_back" android:contentDescription="Back" />
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="12dp" android:layout_weight="1" android:text="@string/group_rules" android:textColor="@color/text_primary" android:textSize="20sp" android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView android:id="@+id/tvGroupName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:textColor="@color/text_secondary" android:textSize="12sp" />
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:background="@drawable/bg_card" android:orientation="vertical" android:padding="18dp">
+            <TextView style="@style/FieldLabel" android:text="@string/due_day_label" />
+            <EditText android:id="@+id/etDueDay" style="@style/FieldInput" android:hint="5" android:inputType="number" />
+
+            <TextView style="@style/FieldLabel" android:text="@string/grace_days_label" />
+            <EditText android:id="@+id/etGraceDays" style="@style/FieldInput" android:hint="3" android:inputType="number" />
+
+            <TextView style="@style/FieldLabel" android:text="@string/late_fee_label" />
+            <EditText android:id="@+id/etLateFee" style="@style/FieldInput" android:hint="0" android:inputType="numberDecimal" />
+
+            <CheckBox android:id="@+id/checkOfflineAllowed" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/allow_offline_payments" android:textColor="@color/text_primary" />
+            <CheckBox android:id="@+id/checkExcludeWinners" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="@string/exclude_previous_winners" android:textColor="@color/text_primary" />
+        </LinearLayout>
+
+        <TextView android:id="@+id/btnSaveRules" android:layout_width="match_parent" android:layout_height="52dp" android:layout_marginTop="18dp" android:background="@drawable/bg_button_primary" android:gravity="center" android:text="@string/save_rules" android:textColor="@color/white" android:textSize="14sp" android:textStyle="bold" />
+    </LinearLayout>
+</ScrollView>

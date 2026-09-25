@@ -1,0 +1,13 @@
+Bhishi Digitizer v3.0 static validation
+
+XML resource files parsed: 103
+XML parse errors: 0
+Missing local R.id references: 0
+Missing basic resource references: 0
+Firebase rules JSON: valid JSON
+Node backend syntax: checked separately with node --check
+Full Android APK compile: NOT completed in this environment because Gradle distribution/dependencies require external network access.
+
+XML errors: []
+Missing IDs: []
+Missing refs: []

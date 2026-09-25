@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand system derived from the new Bhishi Digitizer logo -->
+    <color name="brand_navy">#17313F</color>
+    <color name="brand_navy_dark">#0A1D27</color>
+    <color name="brand_navy_deep">#06131A</color>
+    <color name="brand_orange">#FF7417</color>
+    <color name="brand_orange_dark">#E45112</color>
+    <color name="brand_gold">#FFB24A</color>
+    <color name="brand_peach">#FFD7A8</color>
+    <color name="brand_teal">#14AFC0</color>
+    <color name="brand_teal_dark">#087D8B</color>
+    <color name="brand_cream">#FFF8F0</color>
+
+    <!-- App surfaces -->
+    <color name="bg">#FFF8F0</color>
+    <color name="bg_soft">#F8EFE4</color>
+    <color name="bg_gradient_start">#FFFDF9</color>
+    <color name="bg_gradient_end">#FFF0DE</color>
+    <color name="panel">#FFFFFF</color>
+    <color name="card">#FFFFFF</color>
+    <color name="card_alt">#FFF6EC</color>
+    <color name="surface_card_start">#FFFFFF</color>
+    <color name="surface_card_end">#FFF9F2</color>
+    <color name="line">#E8DED2</color>
+    <color name="line_strong">#D2C0AF</color>
+
+    <!-- Semantic aliases retained for existing Java/XML -->
+    <color name="green">#0D8C8E</color>
+    <color name="green_dark">#146174</color>
+    <color name="green_deep">#17313F</color>
+    <color name="green_light">#14AFC0</color>
+    <color name="green_bright">#2BC5D1</color>
+    <color name="green_dim">#DDF5F6</color>
+    <color name="green_surface">#ECFAFA</color>
+
+    <color name="teal">#14AFC0</color>
+    <color name="teal_dark">#087D8B</color>
+    <color name="teal_dim">#DDF7F9</color>
+
+    <color name="red">#D64755</color>
+    <color name="red_dim">#FCE8EC</color>
+
+    <color name="gold">#FF8A1F</color>
+    <color name="gold_dark">#D95C12</color>
+    <color name="gold_light">#FFB24A</color>
+    <color name="gold_dim">#FFF0DC</color>
+
+    <color name="blue">#3478B8</color>
+    <color name="blue_dim">#E6F1FB</color>
+    <color name="purple">#7558B7</color>
+    <color name="purple_dim">#F0EBFC</color>
+
+    <color name="success">#14865B</color>
+    <color name="success_dim">#E6F6EE</color>
+    <color name="warning">#D57A13</color>
+    <color name="warning_dim">#FFF0D8</color>
+
+    <color name="text_primary">#17313F</color>
+    <color name="text_secondary">#60727C</color>
+    <color name="text_faint">#8B989E</color>
+    <color name="text_on_green">#FFFFFF</color>
+    <color name="text_on_gradient">#FFFFFF</color>
+
+    <color name="scrim">#520A1720</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+</resources>

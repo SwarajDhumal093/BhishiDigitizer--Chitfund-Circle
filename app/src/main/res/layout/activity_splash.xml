@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_splash_gradient">
+
+    <View
+        android:id="@+id/orangeGlow"
+        android:layout_width="210dp"
+        android:layout_height="210dp"
+        android:alpha="0.18"
+        android:background="@drawable/bg_splash_logo"
+        android:translationX="-90dp"
+        android:translationY="-90dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/splashContent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingStart="28dp"
+        android:paddingEnd="28dp"
+        app:layout_constraintBottom_toTopOf="@id/splashFooter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.46">
+
+        <ImageView
+            android:id="@+id/logoContainer"
+            android:layout_width="250dp"
+            android:layout_height="210dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerInside"
+            android:src="@drawable/bhishi_logo_full" />
+
+        <TextView
+            android:id="@+id/tvSplashTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="@string/app_name" />
+
+        <TextView
+            android:id="@+id/tvSplashHeadline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:text="@string/savings_circles_simplified"
+            android:textColor="#FFF7EF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvSplashBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:lineSpacingExtra="3dp"
+            android:text="@string/splash_brief"
+            android:textColor="#CBE0E7"
+            android:textSize="12.5sp" />
+
+        <LinearLayout
+            android:id="@+id/featureRow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView style="@style/SplashChip" android:text="@string/feature_contributions" />
+            <TextView style="@style/SplashChip" android:layout_marginStart="8dp" android:text="@string/feature_fair_payouts" />
+            <TextView style="@style/SplashChip" android:layout_marginStart="8dp" android:text="@string/feature_receipts" />
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/splashProgress"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="30dp"
+            android:indeterminateTint="@color/brand_orange" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/splashFooter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:letterSpacing="0.08"
+        android:text="TRUST  •  SAVE  •  GROW  •  TOGETHER"
+        android:textColor="#AFCBD4"
+        android:textSize="9.5sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

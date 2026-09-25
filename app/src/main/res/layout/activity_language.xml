@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@drawable/bg_app_gradient">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:background="@drawable/bg_icon_circle"
+                android:padding="10dp"
+                android:src="@drawable/ic_arrow_back"
+                android:contentDescription="Back"
+                app:tint="@color/text_primary" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/language_settings"
+                    android:textColor="@color/text_primary"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/language_subtitle"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp" />
+            </LinearLayout>
+            <ImageView
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:background="@drawable/bg_icon_circle"
+                android:padding="9dp"
+                android:src="@drawable/ic_language" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="160dp"
+            android:layout_height="130dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="18dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/bhishi_logo_full" />
+
+        <LinearLayout
+            android:id="@+id/rowEnglish"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_card"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+            <TextView android:layout_width="42dp" android:layout_height="42dp" android:background="@drawable/bg_theme_badge" android:gravity="center" android:text="EN" android:textColor="@color/brand_orange" android:textStyle="bold" />
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="14dp" android:layout_weight="1" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/english" android:textColor="@color/text_primary" android:textSize="15sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="English" android:textColor="@color/text_faint" android:textSize="11sp" />
+            </LinearLayout>
+            <TextView android:id="@+id/checkEnglish" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="✓" android:textColor="@color/brand_teal" android:textSize="22sp" android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rowMarathi"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_card"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+            <TextView android:layout_width="42dp" android:layout_height="42dp" android:background="@drawable/bg_theme_badge" android:gravity="center" android:text="म" android:textColor="@color/brand_orange" android:textSize="18sp" android:textStyle="bold" />
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="14dp" android:layout_weight="1" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/marathi" android:textColor="@color/text_primary" android:textSize="15sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Marathi" android:textColor="@color/text_faint" android:textSize="11sp" />
+            </LinearLayout>
+            <TextView android:id="@+id/checkMarathi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="✓" android:textColor="@color/brand_teal" android:textSize="22sp" android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rowHindi"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_card"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+            <TextView android:layout_width="42dp" android:layout_height="42dp" android:background="@drawable/bg_theme_badge" android:gravity="center" android:text="हि" android:textColor="@color/brand_orange" android:textSize="16sp" android:textStyle="bold" />
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="14dp" android:layout_weight="1" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hindi" android:textColor="@color/text_primary" android:textSize="15sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Hindi" android:textColor="@color/text_faint" android:textSize="11sp" />
+            </LinearLayout>
+            <TextView android:id="@+id/checkHindi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="✓" android:textColor="@color/brand_teal" android:textSize="22sp" android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

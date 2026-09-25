@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_app_gradient"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingTop="22dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_hero"
+            android:elevation="6dp"
+            android:orientation="vertical"
+            android:padding="22dp">
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@drawable/bg_splash_logo"
+                android:padding="8dp"
+                android:src="@drawable/bhishi_logo_mark" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="Welcome back"
+                android:textColor="@color/white"
+                android:textSize="27sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:lineSpacingExtra="1dp"
+                android:text="Your bhishi dashboard for transparent contributions, fair payouts and a digital passbook."
+                android:textColor="#DDF4EC"
+                android:textSize="12.5sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_splash_chip"
+                android:paddingStart="11dp"
+                android:paddingTop="7dp"
+                android:paddingEnd="11dp"
+                android:paddingBottom="7dp"
+                android:text="SECURE • VERIFIED • TRANSPARENT"
+                android:textColor="@color/white"
+                android:textSize="9sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_card"
+            android:elevation="2dp"
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <TextView style="@style/FieldLabel" android:text="Phone number" />
+            <EditText
+                android:id="@+id/etPhone"
+                style="@style/FieldInput"
+                android:hint="98765 43210"
+                android:inputType="phone"
+                android:maxLength="10" />
+
+            <TextView style="@style/FieldLabel" android:text="Password" />
+            <EditText
+                android:id="@+id/etPassword"
+                style="@style/FieldInput"
+                android:hint="••••••••"
+                android:inputType="textPassword" />
+
+            <TextView
+                android:id="@+id/tvForgotPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="-7dp"
+                android:layout_marginBottom="19dp"
+                android:padding="4dp"
+                android:text="@string/forgot_password"
+                android:textColor="@color/green"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:background="@drawable/bg_button_primary"
+                android:elevation="3dp"
+                android:gravity="center"
+                android:text="@string/login"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/layoutFingerprint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="17dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="gone">
+                <ImageView
+                    android:id="@+id/btnFingerprint"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:background="@drawable/bg_fingerprint_circle"
+                    android:contentDescription="@string/login_fingerprint"
+                    android:padding="11dp"
+                    android:src="@drawable/ic_fingerprint" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="Use biometric login"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12.5sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvGoSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="18dp"
+            android:padding="10dp"
+            android:text="New here?  Create an account"
+            android:textColor="@color/green"
+            android:textSize="12.5sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="Secure sign-in • Immutable verified records"
+            android:textColor="@color/text_faint"
+            android:textSize="10.5sp" />
+    </LinearLayout>
+</ScrollView>

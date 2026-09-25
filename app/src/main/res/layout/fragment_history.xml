@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_app_gradient">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvHistory"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="18dp" />
+
+    <LinearLayout
+        android:id="@+id/emptyHistory"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="28dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="58dp"
+            android:layout_height="58dp"
+            android:background="@drawable/bg_icon_circle"
+            android:padding="14dp"
+            android:src="@drawable/ic_receipt" />
+
+        <TextView
+            style="@style/EmptyStateTitle"
+            android:layout_marginTop="16dp"
+            android:text="@string/no_history_yet" />
+
+        <TextView
+            style="@style/EmptyStateBody"
+            android:text="@string/no_history_placeholder" />
+    </LinearLayout>
+</FrameLayout>

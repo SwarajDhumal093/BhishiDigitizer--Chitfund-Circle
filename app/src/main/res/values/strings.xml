@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bhishi Digitizer</string>
+    <string name="tagline">Your bhishi, now digital</string>
+
+    <string name="login">Login</string>
+    <string name="sign_up">Sign up</string>
+    <string name="phone_number">Phone number</string>
+    <string name="password">Password</string>
+    <string name="login_fingerprint">Login with fingerprint</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="verify_number">Verify your number</string>
+    <string name="resend_code">Resend code in</string>
+
+    <string name="my_groups">My groups</string>
+    <string name="create_group">Create group</string>
+    <string name="join_group">Join group</string>
+
+    <string name="biometric_prompt_title">Verify it\'s you</string>
+    <string name="biometric_prompt_subtitle">Use your fingerprint to log in to Bhishi Digitizer</string>
+    <string name="biometric_not_available">Fingerprint login isn\'t set up on this device. Please log in with your password once to enable it.</string>
+    <string name="biometric_no_session">Log in with your password first to enable fingerprint login next time.</string>
+
+    <!-- Configure this to your HTTPS Node/Express payment backend. Never put the Razorpay key secret in Android. -->
+    <string name="payment_backend_base_url">https://YOUR_BACKEND_DOMAIN.example</string>
+    <string name="payment_gateway_name">Razorpay Secure Checkout</string>
+
+
+    <!-- v3.0 branding / dashboard -->
+    <string name="savings_circles_simplified">Savings circles, simplified</string>
+    <string name="splash_brief">Track contributions, run transparent payouts, join by QR and keep digital receipts in one trusted place.</string>
+    <string name="feature_contributions">Contributions</string>
+    <string name="feature_fair_payouts">Fair payouts</string>
+    <string name="feature_receipts">Receipts</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="welcome_back">Welcome back</string>
+    <string name="overview_today">Today’s overview</string>
+    <string name="active_bhishis">Active Bhishis</string>
+    <string name="due_payments">Due payments</string>
+    <string name="pool_amount">Pool amount</string>
+    <string name="members">Members</string>
+    <string name="quick_actions">Quick actions</string>
+    <string name="see_all">See all</string>
+    <string name="invite_members">Invite members</string>
+    <string name="lucky_draw">Lucky draw</string>
+    <string name="sealed_auction">Sealed auction</string>
+    <string name="receipts">Receipts</string>
+    <string name="reports">Reports</string>
+    <string name="scan_qr">Scan QR</string>
+    <string name="join_by_qr">Join by QR</string>
+    <string name="recent_groups">Recent groups</string>
+    <string name="collection_progress">Collection progress</string>
+    <string name="payment_verified">Payment verified</string>
+    <string name="waiting_admin">Waiting for admin</string>
+
+    <!-- QR invite/join -->
+    <string name="qr_invite_title">Invite members</string>
+    <string name="qr_invite_subtitle">Scan this QR or share the secure 6-digit code.</string>
+    <string name="group_code">Group code</string>
+    <string name="share_invite">Share invite</string>
+    <string name="regenerate_qr">Refresh QR</string>
+    <string name="scan_group_qr">Scan group QR</string>
+    <string name="scan_group_qr_hint">Point the camera at a Bhishi Digitizer invite QR.</string>
+    <string name="manual_code">Or enter the 6-digit code</string>
+    <string name="preview_group">Group preview</string>
+    <string name="join_now">Join now</string>
+    <string name="invalid_invite">This QR is not a valid Bhishi Digitizer invite.</string>
+
+    <!-- language -->
+    <string name="language">Language</string>
+    <string name="language_settings">App language</string>
+    <string name="language_subtitle">Choose the language used across the main app experience.</string>
+    <string name="english">English</string>
+    <string name="marathi">मराठी</string>
+    <string name="hindi">हिंदी</string>
+    <string name="language_saved">Language updated</string>
+
+    <!-- receipts -->
+    <string name="digital_receipts">Digital receipts</string>
+    <string name="receipt_subtitle">Verified contribution proof for every cycle.</string>
+    <string name="no_receipts">No receipts yet</string>
+    <string name="no_receipts_body">Verified or submitted contributions will appear here.</string>
+    <string name="receipt_id">Receipt ID</string>
+    <string name="payment_method">Payment method</string>
+    <string name="transaction_reference">Transaction reference</string>
+    <string name="verification_status">Verification status</string>
+    <string name="download_pdf">Download PDF</string>
+    <string name="share_receipt">Share receipt</string>
+    <string name="receipt_generated">Receipt PDF created</string>
+    <string name="offline_payment">Offline payment</string>
+    <string name="gateway_payment">Gateway payment</string>
+    <string name="verified">Verified</string>
+    <string name="pending">Pending</string>
+
+    <!-- advanced payout -->
+    <string name="round_center">Payout center</string>
+    <string name="round_readiness">Round readiness</string>
+    <string name="eligible_members">Eligible members</string>
+    <string name="auction_countdown">Auction countdown</string>
+    <string name="open_auction_30">Open sealed auction · 30 min</string>
+    <string name="auction_not_open">Auction has not opened yet</string>
+    <string name="auction_open">Auction is open</string>
+    <string name="auction_closed">Auction is closed</string>
+    <string name="bid_private">Your bid remains private until the round closes.</string>
+    <string name="audit_details">Audit details</string>
+    <string name="winner_certificate">Winner certificate</string>
+    <string name="share_result">Share result</string>
+    <string name="result_locked">Result permanently locked</string>
+
+    <!-- profile/settings -->
+    <string name="appearance">Appearance</string>
+    <string name="dark_theme">Dark theme</string>
+    <string name="security">Security</string>
+    <string name="profile_preferences">Profile &amp; preferences</string>
+    <string name="version_label">Bhishi Digitizer · Java edition · v4.0.3</string>
+    <string name="admin_dashboard_title">Admin Dashboard</string>
+    <string name="brand_promise_short">TRADITIONAL TRUST • DIGITAL SIMPLICITY</string>
+    <string name="admin_banner_title">Small contributions make big communities</string>
+    <string name="admin_banner_subtitle">Track collections, invite members and close fair payout rounds.</string>
+    <string name="my_bhishi">My Bhishi</string>
+    <string name="savings_journey">YOUR SAVINGS JOURNEY</string>
+    <string name="member_banner_default">Checking this month’s contributions…</string>
+    <string name="member_banner_subtitle">Every verified contribution strengthens your digital passbook.</string>
+    <string name="pending_verify">Pending verify</string>
+    <string name="pay_contribution">Pay contribution</string>
+    <string name="tap_details">Tap for details</string>
+    <string name="home">Home</string>
+    <string name="passbook">Passbook</string>
+    <string name="disputes">Disputes</string>
+    <string name="profile">Profile</string>
+    <string name="notifications">Notifications</string>
+    <string name="create_first_bhishi_summary">Create your first trusted savings circle</string>
+    <string name="create_first_bhishi_subtitle">Set the contribution plan, choose a fair payout mechanism and invite members by QR.</string>
+    <string name="all_visible_verified">All visible contributions are verified ✓</string>
+    <string name="ready_payout_rounds">%1$d active Bhishi(s) • ready for transparent payout rounds when eligible.</string>
+    <string name="attention_summary">%1$d contribution(s) need attention</string>
+    <string name="review_collections">Review monthly collections before running the lucky draw or sealed auction.</string>
+    <string name="first_bhishi_scan">Your first Bhishi is one scan away</string>
+    <string name="use_qr_or_code">Use a QR invite or secure 6-digit group code.</string>
+    <string name="up_to_date">You’re up to date this month ✓</string>
+    <string name="all_ready_passbook">All visible contributions are dual-verified and ready in your passbook.</string>
+    <string name="due_summary">%1$d contribution(s) are due</string>
+    <string name="pending_admin_summary">%1$d payment(s) are also waiting for admin verification.</string>
+    <string name="pay_or_offline">Pay securely online or submit an offline contribution record.</string>
+    <string name="pending_summary">%1$d payment(s) are pending</string>
+    <string name="ledger_locks_after_admin">Your confirmation is recorded. The ledger locks after admin verification.</string>
+    <string name="scan_invite_first">Scan an invite QR or enter a 6-digit code to join your first Bhishi.</string>
+    <string name="join_bhishi_first">Join a Bhishi first</string>
+    <string name="no_contribution_due">No contribution is currently due</string>
+    <string name="choose_bhishi">Choose Bhishi</string>
+    <string name="create_bhishi_first">Create a Bhishi first</string>
+    <string name="start_new_bhishi">Start a new Bhishi</string>
+    <string name="set_plan_once">Set the contribution plan once. Members can then join with a secure 6-digit code.</string>
+    <string name="group_name_label">GROUP NAME</string>
+    <string name="monthly_contribution_label">MONTHLY CONTRIBUTION</string>
+    <string name="cycle_duration_label">CYCLE DURATION</string>
+    <string name="payout_mechanism_label">PAYOUT MECHANISM</string>
+    <string name="auditable_random_selection">Auditable random selection</string>
+    <string name="lowest_valid_bid_wins">Lowest valid bid wins</string>
+    <string name="create_group_secure">Create group securely</string>
+    <string name="fair_lucky_draw">Fair lucky draw</string>
+    <string name="checking_contributions">Checking contributions…</string>
+    <string name="eligible">Eligible</string>
+    <string name="monthly_pool">Monthly pool</string>
+    <string name="your_sealed_bid">Your sealed bid</string>
+    <string name="sealed_bid_description">Enter the payout amount you are willing to accept. Other members cannot see your bid before the round closes.</string>
+    <string name="bid_amount_rupees">Bid amount in ₹</string>
+    <string name="submit_update_bid">Submit / update sealed bid</string>
+    <string name="bid_update_hint">Your bid can be updated until the admin closes the round.</string>
+    <string name="run_payout_round">Run payout round</string>
+    <string name="digital_receipt">Digital receipt</string>
+    <string name="amount_upper">AMOUNT</string>
+    <string name="back">Back</string>
+    <string name="monthly_contribution">Monthly contribution</string>
+    <string name="locked_hint">Locked means the payment is completed, dual-verified and frozen in the ledger.</string>
+    <string name="pay_my_contribution">Pay my amount</string>
+    <string name="contribution_paid">Paid &amp; locked</string>
+    <string name="submitted_waiting_admin">Submitted</string>
+    <string name="no_history_yet">No History Yet</string>
+    <string name="no_history_placeholder">Transactions, payout decisions and archived activity will appear here once a cycle starts.</string>
+    <string name="financial_calendar">Financial calendar</string>
+    <string name="financial_calendar_subtitle">Track upcoming due dates, grace periods and payout windows for all your Bhishi groups.</string>
+    <string name="group_rules">Group rules</string>
+    <string name="closure">Group closure</string>
+    <string name="analytics_reports">Analytics &amp; reports</string>
+    <string name="analytics_subtitle">Live insights from your groups to help the admin understand collections, dues and performance.</string>
+    <string name="trust_score">Trust score</string>
+    <string name="explainable_trust_score">Explainable trust score</string>
+    <string name="why_this_score">Why this score?</string>
+    <string name="trust_score_summary">Your trust score is %1$d / 100 based on contribution behaviour and transparent records.</string>
+    <string name="trust_reason_payments">You are participating in %1$d active group(s), which improves continuity and accountability.</string>
+    <string name="trust_reason_transparency">Locked entries, receipts and admin verification increase transparency.</string>
+    <string name="trust_reason_consistency">Consistent monthly payments and a low dispute rate protect your reputation.</string>
+    <string name="due_day_label">DUE DAY OF MONTH</string>
+    <string name="grace_days_label">GRACE PERIOD (DAYS)</string>
+    <string name="late_fee_label">LATE FEE (OPTIONAL)</string>
+    <string name="allow_offline_payments">Allow offline payment recording and admin verification</string>
+    <string name="exclude_previous_winners">Prefer members who have not won a payout in earlier rounds</string>
+    <string name="save_rules">Save rules</string>
+    <string name="fill_all_rule_fields">Please fill all rule fields.</string>
+    <string name="rules_saved">Rules updated successfully.</string>
+    <string name="no_schedule_yet">No events scheduled yet</string>
+    <string name="no_schedule_body">Create or join a Bhishi group to view upcoming due dates, grace periods and payout rounds.</string>
+    <string name="monthly_contribution_due">Monthly contribution due</string>
+    <string name="grace_period_ends">Grace period ends</string>
+    <string name="sealed_auction_window">Sealed auction window</string>
+    <string name="lucky_draw_round">Lucky draw round</string>
+    <string name="key_insights">Key insights</string>
+    <string name="archive_group">Archive / close group</string>
+    <string name="group_already_archived">This Bhishi has already been archived.</string>
+    <string name="group_ready_for_review">This Bhishi is ready for admin review and closure.</string>
+    <string name="group_completion_detail">Members currently linked: %1$d • Planned duration: %2$d months. Use closure when the group cycle is complete and you want to archive its state.</string>
+    <string name="group_archived">Group archived successfully.</string>
+    <string name="tap_to_manage">Tap to manage</string>
+    <string name="no_internet_message">No internet connection • Live data and online actions are temporarily unavailable.</string>
+    <string name="network_settings">Settings</string>
+    <string name="back_online_message">Back online • Bhishi Digitizer is connected again.</string>
+</resources>

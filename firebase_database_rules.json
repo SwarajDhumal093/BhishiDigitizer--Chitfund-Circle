@@ -1,0 +1,149 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "users": {
+      "$uid": {
+        ".read": "auth != null && auth.uid === $uid",
+        ".write": "auth != null && auth.uid === $uid"
+      }
+    },
+    "groups": {
+      ".read": "auth != null",
+      ".indexOn": [
+        "groupCode",
+        "adminId"
+      ],
+      "$groupId": {
+        ".write": "auth != null && ((!data.exists() && newData.child('adminId').val() === auth.uid) || (data.exists() && data.child('adminId').val() === auth.uid))",
+        "members": {
+          "$uid": {
+            ".write": "auth != null && (auth.uid === $uid || root.child('groups').child($groupId).child('adminId').val() === auth.uid)"
+          }
+        }
+      }
+    },
+    "contributions": {
+      "$groupId": {
+        "$monthKey": {
+          "$uid": {
+            "uid": {
+              ".write": "auth != null && (root.child('groups').child($groupId).child('adminId').val() === auth.uid || (auth.uid === $uid && !data.exists() && newData.val() === auth.uid))"
+            },
+            "memberName": {
+              ".write": "auth != null && (root.child('groups').child($groupId).child('adminId').val() === auth.uid || (auth.uid === $uid && !data.exists()))"
+            },
+            "amount": {
+              ".write": "auth != null && (root.child('groups').child($groupId).child('adminId').val() === auth.uid || (auth.uid === $uid && !data.exists() && newData.val() === root.child('groups').child($groupId).child('monthlyAmount').val()))"
+            },
+            "paid": {
+              ".write": "auth != null && (auth.uid === $uid || root.child('groups').child($groupId).child('adminId').val() === auth.uid) && !(root.child('contributions').child($groupId).child($monthKey).child($uid).child('confirmedByAdmin').val() === true && root.child('contributions').child($groupId).child($monthKey).child($uid).child('confirmedByMember').val() === true)"
+            },
+            "confirmedByMember": {
+              ".write": "auth != null && auth.uid === $uid && !(root.child('contributions').child($groupId).child($monthKey).child($uid).child('confirmedByAdmin').val() === true && root.child('contributions').child($groupId).child($monthKey).child($uid).child('confirmedByMember').val() === true)"
+            },
+            "confirmedByAdmin": {
+              ".write": "auth != null && root.child('groups').child($groupId).child('adminId').val() === auth.uid && !(root.child('contributions').child($groupId).child($monthKey).child($uid).child('confirmedByAdmin').val() === true && root.child('contributions').child($groupId).child($monthKey).child($uid).child('confirmedByMember').val() === true)"
+            },
+            "onTime": {
+              ".write": "auth != null && (auth.uid === $uid || root.child('groups').child($groupId).child('adminId').val() === auth.uid)"
+            },
+            "timestamp": {
+              ".write": "auth != null && (auth.uid === $uid || root.child('groups').child($groupId).child('adminId').val() === auth.uid)"
+            },
+            "paymentVerified": {
+              ".write": "false"
+            },
+            "paymentMethod": {
+              ".write": "auth != null && auth.uid === $uid && newData.val() === 'offline'"
+            },
+            "paymentStatus": {
+              ".write": "auth != null && auth.uid === $uid && newData.val() === 'pending_admin'"
+            },
+            "paymentId": {
+              ".write": "false"
+            }
+          }
+        },
+        ".read": "auth != null && (root.child('groups').child($groupId).child('members').child(auth.uid).exists() || root.child('groups').child($groupId).child('adminId').val() === auth.uid)"
+      }
+    },
+    "payouts": {
+      "$groupId": {
+        "$monthKey": {
+          ".read": "auth != null && (root.child('groups').child($groupId).child('members').child(auth.uid).exists() || root.child('groups').child($groupId).child('adminId').val() === auth.uid)",
+          ".write": "false"
+        }
+      }
+    },
+    "roundSeeds": {
+      "$groupId": {
+        "$monthKey": {
+          ".read": "auth != null && (root.child('groups').child($groupId).child('members').child(auth.uid).exists() || root.child('groups').child($groupId).child('adminId').val() === auth.uid)",
+          ".write": "false"
+        }
+      }
+    },
+    "roundConfigs": {
+      "$groupId": {
+        "$monthKey": {
+          ".read": "auth != null && (root.child('groups').child($groupId).child('members').child(auth.uid).exists() || root.child('groups').child($groupId).child('adminId').val() === auth.uid)",
+          ".write": "auth != null && root.child('groups').child($groupId).child('adminId').val() === auth.uid && root.child('payouts').child($groupId).child($monthKey).child('lockedResult').val() !== true",
+          "status": {
+            ".validate": "newData.isString() && (newData.val() === 'open' || newData.val() === 'closed')"
+          },
+          "openAt": {
+            ".validate": "newData.isNumber() && newData.val() > 0"
+          },
+          "closeAt": {
+            ".validate": "newData.isNumber() && newData.val() > now"
+          },
+          "durationMinutes": {
+            ".validate": "newData.isNumber() && newData.val() >= 1 && newData.val() <= 120"
+          }
+        }
+      }
+    },
+    "auctionBids": {
+      "$groupId": {
+        "$monthKey": {
+          ".read": "auth != null && root.child('groups').child($groupId).child('adminId').val() === auth.uid",
+          "$uid": {
+            ".read": "auth != null && (auth.uid === $uid || root.child('groups').child($groupId).child('adminId').val() === auth.uid)",
+            ".write": "auth != null && auth.uid === $uid && root.child('groups').child($groupId).child('members').child($uid).exists() && root.child('groups').child($groupId).child('members').child($uid).child('hasReceivedPayout').val() !== true && root.child('contributions').child($groupId).child($monthKey).child($uid).child('confirmedByAdmin').val() === true && root.child('contributions').child($groupId).child($monthKey).child($uid).child('confirmedByMember').val() === true && root.child('roundConfigs').child($groupId).child($monthKey).child('status').val() === 'open' && root.child('roundConfigs').child($groupId).child($monthKey).child('closeAt').val() > now && root.child('payouts').child($groupId).child($monthKey).child('lockedResult').val() !== true",
+            "amount": {
+              ".validate": "newData.isNumber() && newData.val() > 0"
+            },
+            "uid": {
+              ".validate": "newData.val() === auth.uid"
+            }
+          }
+        }
+      }
+    },
+    "payments": {
+      "$groupId": {
+        "$monthKey": {
+          "$uid": {
+            ".read": "auth != null && (auth.uid === $uid || root.child('groups').child($groupId).child('adminId').val() === auth.uid)",
+            ".write": false
+          }
+        }
+      }
+    },
+    "disputes": {
+      "$groupId": {
+        ".read": "auth != null && (root.child('groups').child($groupId).child('members').child(auth.uid).exists() || root.child('groups').child($groupId).child('adminId').val() === auth.uid)",
+        "$disputeId": {
+          ".write": "auth != null && data.child('locked').val() !== true && (root.child('groups').child($groupId).child('adminId').val() === auth.uid || (!data.exists() && root.child('groups').child($groupId).child('members').child(auth.uid).exists()))"
+        }
+      }
+    },
+    "notifications": {
+      "$uid": {
+        ".read": "auth != null && auth.uid === $uid",
+        ".write": "auth != null"
+      }
+    }
+  }
+}

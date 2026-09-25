@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="brand_navy">#D7EAF2</color>
+    <color name="brand_navy_dark">#17313F</color>
+    <color name="brand_navy_deep">#06131A</color>
+    <color name="brand_orange">#FF8A2B</color>
+    <color name="brand_orange_dark">#E96A1E</color>
+    <color name="brand_gold">#FFC263</color>
+    <color name="brand_peach">#563923</color>
+    <color name="brand_teal">#31C6D1</color>
+    <color name="brand_teal_dark">#1594A1</color>
+    <color name="brand_cream">#0A171D</color>
+
+    <color name="bg">#07171E</color>
+    <color name="bg_soft">#0B2028</color>
+    <color name="bg_gradient_start">#07141A</color>
+    <color name="bg_gradient_end">#0B222B</color>
+    <color name="panel">#0E252E</color>
+    <color name="card">#102A34</color>
+    <color name="card_alt">#15333E</color>
+    <color name="surface_card_start">#13313B</color>
+    <color name="surface_card_end">#0D242D</color>
+    <color name="line">#27424C</color>
+    <color name="line_strong">#3A5660</color>
+
+    <color name="green">#30C2CC</color>
+    <color name="green_dark">#17919C</color>
+    <color name="green_deep">#0B2731</color>
+    <color name="green_light">#45D2DB</color>
+    <color name="green_bright">#62DEE5</color>
+    <color name="green_dim">#163943</color>
+    <color name="green_surface">#102E37</color>
+
+    <color name="teal">#31C6D1</color>
+    <color name="teal_dark">#1594A1</color>
+    <color name="teal_dim">#153943</color>
+
+    <color name="red">#FF8290</color>
+    <color name="red_dim">#47242C</color>
+    <color name="gold">#FF943B</color>
+    <color name="gold_dark">#E46D1C</color>
+    <color name="gold_light">#FFC263</color>
+    <color name="gold_dim">#4C301A</color>
+    <color name="blue">#76B7F2</color>
+    <color name="blue_dim">#17324B</color>
+    <color name="purple">#B8A1F2</color>
+    <color name="purple_dim">#2C2445</color>
+    <color name="success">#5BDBA3</color>
+    <color name="success_dim">#173B2D</color>
+    <color name="warning">#FFB75A</color>
+    <color name="warning_dim">#493318</color>
+
+    <color name="text_primary">#F1F7F9</color>
+    <color name="text_secondary">#B5C7CD</color>
+    <color name="text_faint">#7F959E</color>
+    <color name="text_on_green">#FFFFFF</color>
+    <color name="text_on_gradient">#FFFFFF</color>
+    <color name="scrim">#8A000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+</resources>
